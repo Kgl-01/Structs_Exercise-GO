@@ -4,12 +4,12 @@ import "fmt"
 
 type customString string
 
-func (c *customString) printString() {
+func (c *customString) log() {
 	deReferencedString := *c
 	fmt.Println(deReferencedString)
 }
 
 func main() {
 	var name customString = "Karthik Gowda"
-	name.printString()
+	name.log()
 }
