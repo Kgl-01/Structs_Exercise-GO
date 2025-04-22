@@ -1,15 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-type customString string
-
-func (c *customString) log() {
-	deReferencedString := *c
-	fmt.Println(deReferencedString)
-}
+	"github.com/Kgl-01/Structs_Exercise-GO.git/note"
+)
 
 func main() {
-	var name customString = "Karthik Gowda"
-	name.log()
+	title, content := getNoteData()
+	userNote, err := note.New(title, content)
+}
+
+func getNoteData() (string, string) {
+	title := getUserInput("Note title:")
+
+	content := getUserInput("Note content:")
+
+	return title, content
+}
+
+func getUserInput(prompt string) string {
+	fmt.Print(prompt)
+	var userInput string
+	fmt.Scanln(&userInput)
+
+	return userInput
 }
