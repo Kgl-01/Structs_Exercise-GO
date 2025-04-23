@@ -7,10 +7,31 @@ import (
 	"strings"
 
 	"github.com/Kgl-01/Structs_Exercise-GO.git/note"
+	"github.com/Kgl-01/Structs_Exercise-GO.git/todo"
 )
 
 func main() {
 	title, content := getNoteData()
+	todoText := getUserInput("Todo text: ")
+
+	todo, err := todo.New(todoText)
+
+	if err != nil {
+		fmt.Println("invalid input")
+		return
+	}
+
+	todo.Display()
+
+	todoSaveErr := todo.Save()
+
+	if todoSaveErr != nil {
+		fmt.Println("Saving todo failed")
+		return
+	}
+
+	fmt.Println("todo saved successfully")
+
 	userNote, err := note.New(title, content)
 	if err != nil {
 		fmt.Print(err)
