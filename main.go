@@ -52,6 +52,10 @@ func main() {
 	}
 }
 
+func printSomething(value any) {
+	fmt.Println(value)
+}
+
 func outputData(data outputtable) error {
 	data.Display()
 	return saveData(data)
