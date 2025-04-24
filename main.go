@@ -10,6 +10,10 @@ import (
 	"github.com/Kgl-01/Structs_Exercise-GO.git/todo"
 )
 
+type saver interface {
+	Save() error
+}
+
 func main() {
 	title, content := getNoteData()
 	todoText := getUserInput("Todo text: ")
