@@ -65,6 +65,10 @@ func printSomething(value any) {
 	}
 }
 
+func add[T int | float64](a, b T) T {
+	return a + b
+}
+
 func outputData(data outputtable) error {
 	data.Display()
 	return saveData(data)
